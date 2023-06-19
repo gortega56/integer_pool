@@ -59,11 +59,11 @@ namespace ppg
             {
                 do
                 {
-                    success = (current & (1 << j)) == 0;
+                    success = (current & (1U << (storage_t)j)) == 0;
                     if (!success) break;
 
                     // Found Free handle.. enter cas loop
-                    updated = current | (1 << j);
+                    updated = current | (1U << (storage_t)j);
                 } while (!m_storage[i].compare_exchange_strong(current, updated));
 
                 // break inner
