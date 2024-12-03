@@ -41,7 +41,9 @@ namespace ppg
         m_storage[0].store(1);
 
         for (uint i = 1; i < sm_num_storage; ++i)
+        {
             m_storage[i].store(ATOMIC_VAR_INIT(0));
+        }
     }
 
     template<typename integer_type, typename storage_type, unsigned int num_integers>
